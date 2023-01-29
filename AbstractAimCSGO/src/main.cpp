@@ -12,11 +12,18 @@ DWORD WINAPI hack(HINSTANCE hmod) {
   AllocConsole();
   FILE* fp = std::freopen("CONOUT$", "w+", stdout);
 
-  
+  const auto list { interfaces::get_interface<interfaces::i_client_ent_list>("VClientEntityList003", "client.dll") };
 
   do {
     std::cout << "tick\n";
+    for(int q { 0 }; q <= 64; ++q) {
+      const auto player { list->GetClientEntity(q) };
+      if(!player) {
+        continue;
+      }
 
+      std::cout << "ent " << q << " " << player->get_health() << "\n";
+    }
     Sleep(100);
   } while(!(GetAsyncKeyState(VK_END) & 0x8000));
 
