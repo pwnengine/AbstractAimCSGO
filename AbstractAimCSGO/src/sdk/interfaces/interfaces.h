@@ -3,6 +3,7 @@
 
 #include "client.h"
 
+#include <directx9/d3d9.h>
 #include <windows.h>
 
 using create_interface_fn = void* (*)(const char*, int*);
@@ -27,6 +28,7 @@ namespace interfaces {
   inline void* client { nullptr };
   inline void* client_mode { nullptr };
   inline iclient_ent_list* entity_list { nullptr };
+  inline IDirect3DDevice9* device { nullptr };
 }
 
 #endif
