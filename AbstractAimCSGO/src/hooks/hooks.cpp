@@ -1,6 +1,9 @@
 #include "../sdk/interfaces/interfaces.h"
 #include "../sdk/interfaces/user_cmd.h"
+#include "../hacks/include.h"
 #include "hooks.h"
+
+#include "../menu/menu.h"
 
 #include <directx9/d3d9.h>
 #include <directx9/d3dx9.h>
@@ -25,17 +28,15 @@ bool __stdcall hk_create_move(float frame_time, user_cmd* cmd) {
   if(!local_player)
     return false;
 
-  if(!(*reinterpret_cast<int*>(local_player + m_flags) & 1)) {
-    cmd->buttons &= ~IN_JUMP;
-  }
+  hacks::movement::move(cmd, local_player, m_flags);
 
   return false;
 }
 
 HRESULT __stdcall hk_end_scene(IDirect3DDevice9* pdevice) {
- 
+  menu.draw(pdevice);
 
-  return o_end_scene(pdevice); // call original endScene 
+  return o_end_scene(pdevice);
 }
 
 MH_STATUS hooks::init() {

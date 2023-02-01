@@ -149,16 +149,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\hacks\movement.cpp" />
+    <ClCompile Include="src\hacks\visuals.cpp" />
     <ClCompile Include="src\hooks\hooks.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\menu\menu.cpp" />
+    <ClCompile Include="src\sdk\netvar_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\hacks\include.h" />
     <ClInclude Include="src\hooks\hooks.h" />
     <ClInclude Include="src\menu\menu.h" />
     <ClInclude Include="src\sdk\interfaces\client.h" />
     <ClInclude Include="src\sdk\interfaces\interfaces.h" />
     <ClInclude Include="src\sdk\interfaces\user_cmd.h" />
+    <ClInclude Include="src\sdk\netvar_manager.h" />
     <ClInclude Include="src\vars.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -26,7 +26,7 @@ DWORD WINAPI hack(HINSTANCE hmod) {
   }
 
   do {
-    std::cout << "tick\n";
+    //std::cout << "tick\n";
     for(int q { 0 }; q <= 64; ++q) {
       const auto player { interfaces::entity_list->get_client_entity(q) };
       if(!player) {
